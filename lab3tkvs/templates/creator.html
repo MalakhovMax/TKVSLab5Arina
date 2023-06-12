@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drugstore</title>
+    <meta charset="utf-8" />
+    <style>
+        H1, H2{ 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366; 
+        }
+        p { 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: black; 
+        }        
+    </style>
+</head>
+<body>    
+    <a href="{% url 'mainp' %}">Mainpage</a>
+    <a href="{% url 'orders' %}">View orders</a>
+    <h2>Create an order</h2>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Send" >
+</body>
+</html>

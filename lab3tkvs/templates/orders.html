@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drugstore</title>
+    <meta charset="utf-8" />
+    <style>
+        H1, H2{ 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366; 
+        }
+        p { 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: black; 
+        }        
+    </style>
+</head>
+<body>
+    <a href="{% url 'mainp' %}">Mainpage</a>
+    <a href="{% url 'buy' %}">Create an order</a>
+    {% if user.is_authenticated %}
+        <h2>List of orders</h2>
+        {% for element in ord %}
+            <tr>
+                <td>{{ element.id }}</td>
+                <td>{{ element.name }}</td>
+                <td>{{ element.package }}</td>
+                <td>{{ element.drug }}</td>
+                <td>{{ element.phone }}</td>
+                <td>{{ element.address}}</td>
+                <h2>                      </h2>
+            </tr>
+    {% empty %}
+        <li>empty</li>
+    {% endfor %}
+    {% else %}
+        <h2>You don't have any orders</h2>
+    {% endif %}
+</body>
+</html>

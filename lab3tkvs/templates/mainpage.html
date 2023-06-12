@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+        <a href="{% url 'orders' %}">View orders</a>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log in</a>
+    {% endif %}
+    <style>
+        H1, H2{ 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366; 
+        }
+        p { 
+         font-size: 120%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: black; 
+        }        
+    </style>
+    <title>Tourstore</title>
+    <meta charset="utf-8" />
+    <a href="{% url 'buy' %}">Book a tour</a>
+</head>
+<body>
+    <h2>Welcome to Tourstore</h2>
+    <img src="{% static "images/Prague.png" %}" alt="drug1" >
+    <h1>Prague</h1>
+    <p>Lorem ipsum</p>
+    <a href="{% url 'buy' %}">Book a tour</a>
+    <img src="{% static "images/Budapest.png" %}" alt="drug2" >
+    <h1>Budapest</h1>
+    <p>Lorem ipsum</p>
+    <a href="{% url 'buy' %}">Book a tour</a>
+</body>
+</html>
